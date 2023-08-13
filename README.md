@@ -1,2 +1,2 @@
-# bash-scripts
-random cool bash scripts
+This repo contains a fun collection of useful Bash scripts to automate various tasks.
+
