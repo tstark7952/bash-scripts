@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ubuntu-test
+  namespace: default
+spec:
+  restartPolicy: Never
+  containers:
+  - name: terminal-container
+    image: ubuntu:22.04
+    command:
+      - "bash"
+      - "-c"
+      - |
+        apt update && apt-get install -y bash-completion && PS1='$ ' exec bash
+    securityContext:
+      runAsUser: 0
+      privileged: true
+    stdin: true
+    tty: true
+    volumeMounts:
+    - name: docker-socket
+      mountPath: /var/run/docker.sock
+  volumes:
+  - name: docker-socket
+    hostPath:
+      path: /var/run/docker.sock
