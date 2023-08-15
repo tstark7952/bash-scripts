@@ -15,7 +15,7 @@ spec:
         apt update && apt-get install -y bash-completion && PS1='$ ' exec bash
     securityContext:
       runAsUser: 0
-      privileged: true
+      privileged: false
     stdin: true
     tty: true
     volumeMounts:
